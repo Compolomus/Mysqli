@@ -1,0 +1,7 @@
+/.idea/
+/vendor/
+/example/
+/index.php
+/composer.lock
+/clover.xml
+/.phpunit.result.cache
