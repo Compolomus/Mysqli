@@ -7,7 +7,6 @@ namespace Compolomus\Mysqli;
 use mysqli;
 use mysqli_driver;
 use mysqli_stmt;
-use stdClass;
 
 class Wrapper
 {
@@ -30,7 +29,7 @@ class Wrapper
     {
         $this->stmt = $this->mysqli->prepare($query);
 
-        if ($placeholders && $this->countParams()) {
+        if ($placeholders && $this->countParams() === count($placeholders)) {
             $this->bindParam($placeholders);
         }
 
@@ -47,7 +46,7 @@ class Wrapper
         return $this;
     }
 
-    public function result($mode = self::FETCHTOARRAY)
+    public function result($mode = self::FETCHTOARRAY): array
     {
         $data = [];
         $method = $mode ? 'fetch_object' : 'fetch_assoc';
@@ -59,7 +58,6 @@ class Wrapper
 
         return $data;
     }
-
 
     private function bindResult(): void
     {
@@ -99,20 +97,8 @@ class Wrapper
         return $this->stmt->param_count;
     }
 
-//    private function countFields(): int
-//    {
-//        return $this->stmt->field_count;
-//    }
-
     private function isFetch(string $query): bool
     {
         return false !== stripos($query, 'select');
     }
-
-//    private function reset(): void
-//    {
-//        // set def values post execute
-////        $this->query = null;
-//        $this->placeholders = null;
-//    }
 }
