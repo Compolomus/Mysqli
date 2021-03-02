@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
     <testsuites>
-        <testsuite name="Mysql tests">
+        <testsuite name="Mysql Wrapper tests">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>

@@ -1,6 +1,6 @@
 {
-  "name": "compolomus/collection",
-  "description": "Collection",
+  "name": "compolomus/mysqliwrapper",
+  "description": "Mysqli wrapper",
   "license": "MIT",
   "keywords": [
     "collection"
@@ -14,15 +14,15 @@
   ],
   "autoload": {
     "psr-4": {
-      "Compolomus\\Collection\\": "src/"
+      "Compolomus\\Mysqli\\": "src/"
     }
   },
   "require": {
-    "php": "^7.3"
+    "php": "^7.4",
+    "ext-mysqli": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.0",
-    "zendframework/zend-coding-standard": "^1.0"
+    "phpunit/phpunit": "^8.0"
   },
   "suggest": {
     "ext-xdebug": "^2.6.0"
