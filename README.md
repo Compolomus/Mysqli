@@ -10,7 +10,7 @@
 
 # Install:
 
-composer require compolomus/Mysqli
+composer require compolomus/mysqli-wrapper
 
 # Usage:
 

@@ -1,9 +1,10 @@
 {
-  "name": "compolomus/mysqliwrapper",
+  "name": "compolomus/mysqli-wrapper",
   "description": "Mysqli wrapper",
   "license": "MIT",
   "keywords": [
-    "collection"
+    "mysqli",
+    "wrapper"
   ],
   "type": "library",
   "authors": [

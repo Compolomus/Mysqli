@@ -1,18 +1,14 @@
 filter:
-    excluded_paths:
-        - "tests/"
-checks:
-    php: true
-coding_style:
-    php:
-        spaces:
-            around_operators:
-                concatenation: true
+  excluded_paths:
+  - "tests/"
 build:
-    tests:
-        override:
-          -
-            command: 'php ./vendor/bin/phpunit --coverage-clover=coverage-clover'
-            coverage:
-              file: 'coverage-clover'
-              format: 'php-clover'
+  environment:
+    php:
+      version: 7.4.0
+  tests:
+    override:
+      -
+        command: 'vendor/bin/phpunit --coverage-clover=coverage.xml'
+        coverage:
+          file: 'coverage.xml'
+          format: 'php-clover'
