@@ -116,7 +116,6 @@ build:
       environment:
         php:
           version: 7.4
-    my-node:
       services:
         mysql: 5.7
   tests:
