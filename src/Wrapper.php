@@ -56,7 +56,7 @@ class Wrapper
             $data[] = $row;
         }
 
-        return $data;
+        return $this->count_fields() === 1 ? $data[0] : $data;
     }
 
     private function bindResult(): void
@@ -100,5 +100,10 @@ class Wrapper
     private function isFetch(string $query): bool
     {
         return false !== stripos($query, 'select');
+    }
+
+    private function count_fields(): int
+    {
+        return $this->stmt->field_count;
     }
 }
