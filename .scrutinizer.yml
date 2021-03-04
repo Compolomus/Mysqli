@@ -119,12 +119,11 @@ build:
     my-node:
       services:
         mysql: 5.7
-  my-node:
-    override:
-      - command: 'mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS test CHARACTER SET utf8 COLLATE utf8_general_ci;"'
   tests:
     override:
-      - command: 'php ./vendor/bin/phpunit --coverage-clover=coverage-clover'
+      - command:
+        - 'mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS test CHARACTER SET utf8 COLLATE utf8_general_ci;"'
+        - 'php ./vendor/bin/phpunit --coverage-clover=coverage-clover'
         coverage:
           file: 'coverage-clover'
           format: 'php-clover'
