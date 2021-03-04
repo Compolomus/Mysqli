@@ -121,9 +121,8 @@ build:
         mysql: 5.7
   tests:
     override:
-      before:
-        - 'mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS test CHARACTER SET utf8 COLLATE utf8_general_ci;"'
-        - command: 'php ./vendor/bin/phpunit --coverage-clover=coverage-clover'
-          coverage:
-            file: 'coverage-clover'
-            format: 'php-clover'
+      - command: 'mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS test CHARACTER SET utf8 COLLATE utf8_general_ci;"'
+      - command: 'php ./vendor/bin/phpunit --coverage-clover=coverage-clover'
+        coverage:
+          file: 'coverage-clover'
+          format: 'php-clover'
