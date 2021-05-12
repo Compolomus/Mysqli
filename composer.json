@@ -29,8 +29,6 @@
     "ext-xdebug": "^2.6.0"
   },
   "scripts": {
-    "cs-check": "phpcs",
-    "cs-fix": "phpcbf",
     "test-coverage": "phpunit --coverage-clover clover.xml"
   },
   "minimum-stability": "stable"

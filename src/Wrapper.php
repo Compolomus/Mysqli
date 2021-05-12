@@ -46,17 +46,19 @@ class Wrapper
         return $this;
     }
 
-    public function result($mode = self::FETCHTOARRAY): array
+    public function result($mode = self::FETCHTOARRAY)
     {
         $data = [];
         $method = $mode ? 'fetch_object' : 'fetch_assoc';
 
+        $x = 0;
         $res = $this->stmt->get_result();
         while ($row = $res->$method()) {
             $data[] = $row;
+            $x++;
         }
 
-        return $this->count_fields() === 1 ? $data[0] : $data;
+        return $this->count_fields() === 1 && $x === 1 ? array_values($data[0])[0] : $data;
     }
 
     private function bindResult(): void

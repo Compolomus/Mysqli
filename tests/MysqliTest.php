@@ -65,8 +65,7 @@ class MysqliTest extends TestCase
     {
         $sql = 'SELECT COUNT(*) AS `count` FROM `test`;';
         $result = self::$object->query($sql)->result();
-        self::assertArrayHasKey('count', $result);
-        self::assertEquals(2, $result['count']);
+        self::assertEquals(2, $result);
     }
 
     public function testQueryWithResultWithPlaceholder(): void
@@ -87,6 +86,5 @@ class MysqliTest extends TestCase
     {
         $sql = 'DROP TABLE `test`;';
         self::$object->query($sql);
-        // DROP DATABASE `test`
     }
 }
