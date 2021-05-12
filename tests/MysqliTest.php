@@ -16,8 +16,15 @@ class MysqliTest extends TestCase
     {
         $config = include 'config.php';
 
-        $mysqli = new mysqli($config['host'], $config['user'], $config['pass'], $config['name'], $port = 3306);
+        $mysqli = new mysqli($config['host'], $config['user'], $config['pass']);
+
         $mysqli->set_charset('utf-8');
+
+        $mysqli->query(
+            'CREATE DATABASE IF NOT EXISTS ' . $config['name'] .
+            ' CHARACTER SET utf8 COLLATE utf8_general_ci;'
+        );
+        $mysqli->select_db($config['name']);
 
         self::$object = new Wrapper($mysqli);
     }
